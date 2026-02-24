@@ -1,0 +1,23 @@
+{
+  "completed_tiers": [
+    "IRON",
+    "BRONZE",
+    "SILVER",
+    "GOLD",
+    "PLATINUM",
+    "EMERALD",
+    "DIAMOND"
+  ],
+  "tier_player_counts": {
+    "IRON": 300,
+    "BRONZE": 300,
+    "SILVER": 300,
+    "GOLD": 300,
+    "PLATINUM": 300,
+    "EMERALD": 300,
+    "DIAMOND": 300
+  },
+  "total_matches_downloaded": 40062,
+  "started_at": "2026-03-04T21:15:07.986857",
+  "last_saved": "2026-03-05T12:04:00.260853"
+}
