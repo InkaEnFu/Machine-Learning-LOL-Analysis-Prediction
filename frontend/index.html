@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoL Rank Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">&#9876;</span>
+                <h1>LoL Rank Predictor</h1>
+            </div>
+            <p class="subtitle">ML-powered ranked performance analysis</p>
+        </header>
+
+        <section class="search-section">
+            <div class="search-box">
+                <select id="regionSelect">
+                    <option value="euw">EUW</option>
+                    <option value="eune">EUNE</option>
+                    <option value="na">NA</option>
+                    <option value="kr">KR</option>
+                    <option value="jp">JP</option>
+                    <option value="br">BR</option>
+                    <option value="lan">LAN</option>
+                    <option value="las">LAS</option>
+                    <option value="oce">OCE</option>
+                    <option value="tr">TR</option>
+                    <option value="ru">RU</option>
+                </select>
+                <input type="text" id="riotId" placeholder="Riot ID (e.g. Player#EUW)"
+                       autocomplete="off" spellcheck="false">
+                <button id="analyzeBtn">ANALYZE</button>
+            </div>
+        </section>
+
+        <div class="loader hidden" id="loader">
+            <div class="spinner"></div>
+            <p>Fetching ranked data & analyzing...</p>
+        </div>
+
+        <div class="error hidden" id="error"></div>
+
+        <section class="results hidden" id="results">
+            <div class="summoner-header" id="summonerHeader">
+                <span id="summonerName"></span>
+            </div>
+
+            <div class="top-row">
+                <div class="card rank-card">
+                    <div class="rank-display">
+                        <div class="rank-icon" id="rankIcon"></div>
+                        <div class="rank-info">
+                            <div class="rank-label">PREDICTED RANK</div>
+                            <h2 id="rankName"></h2>
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" id="confidenceFill"></div>
+                            </div>
+                            <div class="confidence-text" id="confidence"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card winrate-card">
+                    <h3>Win Rate</h3>
+                    <div class="winrate-chart-wrap">
+                        <canvas id="winrateChart"></canvas>
+                        <div class="winrate-center" id="winrateCenter"></div>
+                    </div>
+                    <div class="record-text" id="recordText"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Rank Probabilities</h3>
+                <div class="chart-container probability-container">
+                    <canvas id="probabilityChart"></canvas>
+                </div>
+            </div>
+
+            <div class="charts-row">
+                <div class="card">
+                    <h3>Performance Profile</h3>
+                    <div class="chart-container radar-container">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>vs Rank Average</h3>
+                    <div class="chart-container bar-container">
+                        <canvas id="comparisonChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Detailed Comparison &mdash; <span id="comparedRank"></span></h3>
+                <div class="comparison-grid" id="comparisonTables"></div>
+            </div>
+
+            <div class="card">
+                <h3>Match History</h3>
+                <div class="matches-grid" id="matchesGrid"></div>
+            </div>
+
+            <div class="card">
+                <h3>&#127942; Champion Recommender</h3>
+                <p class="section-desc">Your champion pool stats &amp; ML-powered recommendations</p>
+                <div class="recommender-content" id="recommenderContent"></div>
+            </div>
+
+            <div class="card">
+                <h3>Performance Trend</h3>
+                <div class="chart-container trend-container">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card live-game-card">
+                <h3>&#9889; Live Game Predictor</h3>
+                <p class="live-game-desc">Check if the player is currently in a game and predict the match outcome</p>
+                <div class="live-game-trigger">
+                    <button id="liveGameBtn" class="live-game-btn">CHECK LIVE GAME</button>
+                </div>
+                <div class="live-game-loader hidden" id="liveGameLoader">
+                    <div class="spinner"></div>
+                    <p>Analyzing live game &mdash; fetching data for all 10 players...</p>
+                </div>
+                <div class="live-game-status hidden" id="liveGameStatus"></div>
+                <div class="live-game-content hidden" id="liveGameContent"></div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>LoL Rank Predictor &mdash; ML Portfolio Project</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
