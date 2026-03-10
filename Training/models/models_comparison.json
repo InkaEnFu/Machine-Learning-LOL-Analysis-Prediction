@@ -1,0 +1,87 @@
+{
+  "ranking": [
+    {
+      "rank": 1,
+      "model_name": "Logistic Regression",
+      "short_name": "logistic_regression",
+      "cv_accuracy": 0.3980629539951574,
+      "cv_std": 0.01653595261885121,
+      "f1_score": 0.39769112659005185,
+      "description": "Lineární klasifikátor používající logistickou funkci"
+    },
+    {
+      "rank": 2,
+      "model_name": "Neural Network (MLP)",
+      "short_name": "mlp",
+      "cv_accuracy": 0.3849878934624697,
+      "cv_std": 0.024787377999166537,
+      "f1_score": 0.38508792433968075,
+      "description": "Multi-Layer Perceptron neuronová síť"
+    },
+    {
+      "rank": 3,
+      "model_name": "XGBoost",
+      "short_name": "xgboost",
+      "cv_accuracy": 0.3791767554479419,
+      "cv_std": 0.017832399650868726,
+      "f1_score": 0.39602717352245104,
+      "description": "Gradient boosting s optimalizovanou implementací"
+    },
+    {
+      "rank": 4,
+      "model_name": "Random Forest",
+      "short_name": "random_forest",
+      "cv_accuracy": 0.37772397094431,
+      "cv_std": 0.026302131939952098,
+      "f1_score": 0.36874814435140546,
+      "description": "Ensemble stromů s náhodným výběrem features"
+    },
+    {
+      "rank": 5,
+      "model_name": "LightGBM",
+      "short_name": "lightgbm",
+      "cv_accuracy": 0.373365617433414,
+      "cv_std": 0.017419957141506,
+      "f1_score": 0.3869612172168878,
+      "description": "Rychlý gradient boosting od Microsoftu"
+    },
+    {
+      "rank": 6,
+      "model_name": "Support Vector Machine",
+      "short_name": "svm",
+      "cv_accuracy": 0.3719128329297821,
+      "cv_std": 0.018979097280644494,
+      "f1_score": 0.3921418031993542,
+      "description": "Support Vector Classifier s RBF kernelem"
+    },
+    {
+      "rank": 7,
+      "model_name": "Extra Trees",
+      "short_name": "extra_trees",
+      "cv_accuracy": 0.3670702179176756,
+      "cv_std": 0.010893193103343331,
+      "f1_score": 0.3621606037439929,
+      "description": "Extremely Randomized Trees"
+    },
+    {
+      "rank": 8,
+      "model_name": "Gradient Boosting",
+      "short_name": "gradient_boosting",
+      "cv_accuracy": 0.3564164648910412,
+      "cv_std": 0.009733535710528703,
+      "f1_score": 0.362148820601718,
+      "description": "Sklearn implementace gradient boostingu"
+    },
+    {
+      "rank": 9,
+      "model_name": "K-Nearest Neighbors",
+      "short_name": "knn",
+      "cv_accuracy": 0.2973365617433414,
+      "cv_std": 0.032391266843952826,
+      "f1_score": 0.340556768507506,
+      "description": "Klasifikace podle nejbližších sousedů"
+    }
+  ],
+  "best_model": "logistic_regression",
+  "timestamp": "2026-03-10T20:17:21.164853"
+}
