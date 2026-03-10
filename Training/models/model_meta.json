@@ -1,5 +1,7 @@
 {
-  "model_name": "LogisticRegression",
+  "model_name": "XGBoost",
+  "short_name": "xgboost",
+  "description": "Gradient boosting s optimalizovanou implementací",
   "feature_names": [
     "kills_mean",
     "deaths_mean",
@@ -41,6 +43,10 @@
     "EMERALD",
     "DIAMOND"
   ],
-  "cv_accuracy": 0.3980629539951574,
-  "num_players": 2065
+  "cv_accuracy": 0.3791767554479419,
+  "cv_std": 0.017832399650868726,
+  "f1_score": 0.39602717352245104,
+  "training_time": 9.26035737991333,
+  "num_players": 2065,
+  "timestamp": "2026-03-10T20:17:17.271132"
 }
