@@ -48,7 +48,6 @@ def recommend_champions(player_matches, top_n=3):
     if not player_matches or len(player_matches) < 2:
         return {'player_champions': [], 'recommendations': []}
 
-    # --- Player's current champion pool ---
     champ_data = {}
     for m in player_matches:
         name = m.get('championName', '')
@@ -72,7 +71,6 @@ def recommend_champions(player_matches, top_n=3):
             'winrate': wr,
         })
 
-    # --- Build player's aggregate profile vector ---
     all_stats = []
     for data in champ_data.values():
         all_stats.extend(data['stats'])
@@ -82,7 +80,6 @@ def recommend_champions(player_matches, top_n=3):
     player_df = pd.DataFrame(player_vec, columns=feature_cols)
     player_vec_scaled = _profile_scaler.transform(player_df)
 
-    # --- Find similar champions player doesn't play ---
     played_names = set(champ_data.keys())
 
     candidates = _champion_profiles[

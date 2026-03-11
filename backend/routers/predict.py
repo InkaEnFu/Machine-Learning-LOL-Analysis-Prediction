@@ -53,7 +53,6 @@ def predict_rank(request: PredictRequest):
     losses = len(matches) - wins
     winrate = wins / len(matches) if matches else 0
 
-    # Fetch real rank and compute progression
     real_rank = None
     rank_progression = None
     try:

@@ -1,11 +1,3 @@
-"""
-Rank Progression Prediction Service
-
-Estimates how many games a player needs to reach the next tier,
-based on their current rank, LP, winrate, and performance strength
-relative to each tier.
-"""
-
 import math
 from backend.services.predictor import get_rank_stats
 
@@ -32,19 +24,15 @@ def _division_index(div):
 
 
 def _lp_to_next_tier(current_tier, current_division, current_lp):
-    """Calculate total LP needed to reach the next tier."""
     div_idx = _division_index(current_division)
-    # LP remaining in current division
     lp_remaining = LP_PER_DIVISION - current_lp
-    # Full divisions above current
     divisions_above = (len(DIVISIONS) - 1) - div_idx
     return lp_remaining + divisions_above * LP_PER_DIVISION
 
 
 def _estimate_games(lp_needed, winrate):
-    """Estimate games needed given LP to gain and a winrate."""
     if winrate < 0.45:
-        return None  # Actively losing LP, can't climb
+        return None
     net_lp_per_game = winrate * AVG_LP_GAIN - (1 - winrate) * AVG_LP_LOSS
     if net_lp_per_game <= 0:
         return None
@@ -52,10 +40,6 @@ def _estimate_games(lp_needed, winrate):
 
 
 def _compute_tier_strength(player_stats, tier, rank_stats):
-    """
-    Compute how well a player's stats match a given tier.
-    Returns a 0-100 score (higher = stronger relative to that tier).
-    """
     if tier not in rank_stats:
         return 50.0
 
@@ -74,30 +58,18 @@ def _compute_tier_strength(player_stats, tier, rank_stats):
             continue
         z = (val - tier_mean[key]) / std
         if key in inverted:
-            z = -z  # lower is better for these
+            z = -z
         z_scores.append(z)
 
     if not z_scores:
         return 50.0
 
     avg_z = sum(z_scores) / len(z_scores)
-    # Convert z-score to 0-100 scale (sigmoid-like mapping)
     strength = 1 / (1 + math.exp(-avg_z * 0.8))
     return round(strength * 100, 1)
 
 
 def compute_rank_progression(real_rank, player_stats, winrate):
-    """
-    Compute rank progression prediction.
-
-    Args:
-        real_rank: Dict with 'tier', 'rank' (division), 'lp', 'wins', 'losses'
-        player_stats: Aggregated player stats dict
-        winrate: Player's overall winrate (0-1)
-
-    Returns:
-        Dict with progression data for each tier above current.
-    """
     if not real_rank:
         return None
 
@@ -111,15 +83,12 @@ def compute_rank_progression(real_rank, player_stats, winrate):
 
     rank_stats = get_rank_stats()
 
-    # Compute strength against each tier
     tier_strengths = {}
     for tier in TIER_ORDER:
         tier_strengths[tier] = _compute_tier_strength(player_stats, tier, rank_stats)
 
-    # Compute progression to each tier above current
     tiers_progression = []
 
-    # LP to next tier from current position
     lp_to_next = _lp_to_next_tier(current_tier, current_div, current_lp)
 
     cumulative_lp = 0
@@ -127,10 +96,8 @@ def compute_rank_progression(real_rank, player_stats, winrate):
         target_tier = TIER_ORDER[i]
 
         if i == current_tier_idx + 1:
-            # First tier above: use actual LP distance
             cumulative_lp += lp_to_next
         else:
-            # Each additional tier = 4 full divisions
             cumulative_lp += LP_PER_DIVISION * len(DIVISIONS)
 
         est_games = _estimate_games(cumulative_lp, winrate)
