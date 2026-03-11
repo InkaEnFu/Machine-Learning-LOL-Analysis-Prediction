@@ -1,0 +1,670 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0" version="29.6.1" pages="7">
+  <diagram id="usecase" name="Use Case">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Actor: User -->
+        <mxCell id="uc_user" value="User" style="shape=mxgraph.uml.actor;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="60" height="80" as="geometry" />
+        </mxCell>
+        <!-- System boundary -->
+        <mxCell id="uc_sys" value="LoL Rank Predictor" style="swimlane;startSize=30;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="200" y="60" width="700" height="700" as="geometry" />
+        </mxCell>
+        <!-- Use Cases -->
+        <mxCell id="uc1" value="Enter Riot ID + Region" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="240" y="100" width="200" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="uc2" value="Get Rank Prediction" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="240" y="200" width="200" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="uc3" value="View Performance Analytics" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="240" y="300" width="200" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="uc4" value="View Champion Recommendations" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="240" y="400" width="200" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="uc5" value="View Rank Progression Estimate" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="240" y="500" width="200" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="uc6" value="Analyse Live Game" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="240" y="600" width="200" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="uc7" value="Switch ML Model" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="490" y="100" width="200" height="55" as="geometry" />
+        </mxCell>
+        <!-- Edges: User → use cases -->
+        <mxCell id="e_u1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="uc_user" target="uc1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_u2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="uc_user" target="uc2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_u3" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="uc_user" target="uc3" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_u4" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="uc_user" target="uc4" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_u5" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="uc_user" target="uc5" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_u6" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="uc_user" target="uc6" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_u7" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="uc_user" target="uc7" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- include relationships -->
+        <mxCell id="e_inc1" value="«include»" style="dashed;endArrow=open;endFill=0;" edge="1" source="uc2" target="uc1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_inc2" value="«include»" style="dashed;endArrow=open;endFill=0;" edge="1" source="uc3" target="uc2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_inc3" value="«include»" style="dashed;endArrow=open;endFill=0;" edge="1" source="uc4" target="uc2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_inc4" value="«include»" style="dashed;endArrow=open;endFill=0;" edge="1" source="uc5" target="uc2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_inc5" value="«extend»" style="dashed;endArrow=open;endFill=0;" edge="1" source="uc7" target="uc2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Actor: Riot API -->
+        <mxCell id="uc_riot" value="Riot Games API" style="shape=mxgraph.uml.actor;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="970" y="200" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e_riot1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="uc_riot" target="uc2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_riot2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="uc_riot" target="uc6" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="architecture" name="Architecture">
+    <mxGraphModel dx="1418" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="browser_bg" parent="1" style="swimlane;startSize=30;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" value="Client Browser" vertex="1">
+          <mxGeometry height="140" width="380" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="html" parent="1" style="rounded=1;fillColor=#fff;strokeColor=#6c8ebf;" value="index.html" vertex="1">
+          <mxGeometry height="40" width="100" x="60" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="css" parent="1" style="rounded=1;fillColor=#fff;strokeColor=#6c8ebf;" value="style.css" vertex="1">
+          <mxGeometry height="40" width="100" x="180" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="js" parent="1" style="rounded=1;fillColor=#fff;strokeColor=#6c8ebf;" value="app.js&#xa;Chart.js (CDN)" vertex="1">
+          <mxGeometry height="40" width="100" x="300" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="backend_bg" parent="1" style="swimlane;startSize=30;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;" value="FastAPI Backend (Python)" vertex="1">
+          <mxGeometry height="730" width="900" x="80" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="xbsWFazwJYxF1arJBwC4-1" edge="1" parent="backend_bg" source="anal_svc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pred_svc" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="anal_svc" parent="backend_bg" style="rounded=1;fillColor=#fffbe6;strokeColor=#d6b656;" value="analytics.py&#xa;z-score / percentile" vertex="1">
+          <mxGeometry height="55" width="180" x="440" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="pred_svc" parent="backend_bg" style="rounded=1;fillColor=#fffbe6;strokeColor=#d6b656;" value="predictor.py&#xa;Model loading &amp; inference" vertex="1">
+          <mxGeometry height="55" width="180" x="40" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="riot_svc" parent="backend_bg" style="rounded=1;fillColor=#fffbe6;strokeColor=#d6b656;" value="riot_api.py&#xa;Riot API HTTP client" vertex="1">
+          <mxGeometry height="55" width="180" x="30" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="live_svc" parent="backend_bg" style="rounded=1;fillColor=#fffbe6;strokeColor=#d6b656;" value="live_game.py&#xa;Live game analysis" vertex="1">
+          <mxGeometry height="55" width="180" x="20" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="config" parent="backend_bg" style="rounded=1;fillColor=#fffbe6;strokeColor=#d6b656;" value="config.py&#xa;Region maps, env vars" vertex="1">
+          <mxGeometry height="40" width="180" x="20" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="rec_svc" parent="backend_bg" style="rounded=1;fillColor=#fffbe6;strokeColor=#d6b656;" value="champion_recommender.py&#xa;Cosine similarity" vertex="1">
+          <mxGeometry height="55" width="180" x="320" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="ddragon_ext" parent="backend_bg" style="shape=mxgraph.network.server;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Data Dragon CDN&#xa;ddragon.leagueoflegends.com" vertex="1">
+          <mxGeometry height="100" width="140" x="660" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_riot_dd" edge="1" parent="backend_bg" source="riot_svc" style="edgeStyle=orthogonalEdgeStyle;" target="ddragon_ext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="riot_ext" parent="backend_bg" style="shape=mxgraph.network.server;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Riot Games API&#xa;api.riotgames.com" vertex="1">
+          <mxGeometry height="100" width="140" x="560" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_riot_ext" edge="1" parent="backend_bg" source="riot_svc" style="edgeStyle=orthogonalEdgeStyle;" target="riot_ext" value="HTTPS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_live_ext" edge="1" parent="backend_bg" source="live_svc" style="edgeStyle=orthogonalEdgeStyle;" target="riot_ext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="router" parent="backend_bg" style="rounded=1;fillColor=#fff;strokeColor=#82b366;" value="routers/predict.py&#xa;POST /api/predict&#xa;POST /api/live-game" vertex="1">
+          <mxGeometry height="55" width="200" x="310" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_r_pred" edge="1" parent="backend_bg" source="router" style="edgeStyle=orthogonalEdgeStyle;" target="pred_svc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_r_anal" edge="1" parent="backend_bg" source="router" style="edgeStyle=orthogonalEdgeStyle;" target="anal_svc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_r_live" edge="1" parent="backend_bg" source="router" style="edgeStyle=orthogonalEdgeStyle;" target="live_svc">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="160" />
+              <mxPoint x="160" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn_r_rec" edge="1" parent="backend_bg" source="router" style="edgeStyle=orthogonalEdgeStyle;" target="rec_svc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_r_riot" edge="1" parent="backend_bg" source="router" style="edgeStyle=orthogonalEdgeStyle;" target="riot_svc">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="208" />
+              <mxPoint x="80" y="208" />
+            </Array>
+            <mxPoint x="270" y="207.5" as="sourcePoint" />
+            <mxPoint x="80" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="schemas" parent="backend_bg" style="rounded=1;fillColor=#fff;strokeColor=#82b366;" value="models/schemas.py&#xa;PredictRequest (Pydantic)" vertex="1">
+          <mxGeometry height="55" width="220" x="670" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_r_s" edge="1" parent="backend_bg" source="router" style="edgeStyle=orthogonalEdgeStyle;" target="schemas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="main" parent="backend_bg" style="rounded=1;fillColor=#fff;strokeColor=#82b366;" value="main.py&#xa;(App entry, static mount)" vertex="1">
+          <mxGeometry height="55" width="200" x="30" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_m_r" edge="1" parent="backend_bg" source="main" style="edgeStyle=orthogonalEdgeStyle;" target="router">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="prog_svc" parent="backend_bg" style="rounded=1;fillColor=#fffbe6;strokeColor=#d6b656;" value="rank_progression.py&#xa;LP / games-to-next-tier" vertex="1">
+          <mxGeometry height="55" width="180" x="567" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_r_prog" edge="1" parent="backend_bg" source="router" style="edgeStyle=orthogonalEdgeStyle;" target="prog_svc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="models_bg" parent="1" style="swimlane;startSize=30;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=12;" value="Training/models/ (artifacts)" vertex="1">
+          <mxGeometry height="160" width="380" x="30" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="m_pkl" parent="1" style="rounded=1;fillColor=#fff;strokeColor=#b85450;" value="model.pkl&#xa;scaler.pkl&#xa;rank_stats.pkl" vertex="1">
+          <mxGeometry height="70" width="150" x="50" y="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="m_json" parent="1" style="rounded=1;fillColor=#fff;strokeColor=#b85450;" value="model_meta.json&#xa;models_comparison.json" vertex="1">
+          <mxGeometry height="70" width="170" x="220" y="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="train_bg" parent="1" style="swimlane;startSize=30;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=12;" value="Training Pipeline (offline)" vertex="1">
+          <mxGeometry height="160" width="380" x="620" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" parent="train_bg" style="rounded=1;fillColor=#fff;strokeColor=#9673a6;" value="cleaner.py&#xa;feature_engineering.py" vertex="1">
+          <mxGeometry height="40" width="170" x="10" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="t1" parent="train_bg" style="rounded=1;fillColor=#fff;strokeColor=#9673a6;" value="lol_data_collection.ipynb" vertex="1">
+          <mxGeometry height="40" width="170" x="20" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t3" parent="train_bg" style="rounded=1;fillColor=#fff;strokeColor=#9673a6;" value="train_all_models.py&#xa;evaluate.py" vertex="1">
+          <mxGeometry height="55" width="150" x="207" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_br_be" edge="1" parent="1" source="browser_bg" style="edgeStyle=orthogonalEdgeStyle;dashed=0;endArrow=block;endFill=1;" target="main" value="HTTP REST / JSON">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="230" y="200" />
+              <mxPoint x="120" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn_pred_m" edge="1" parent="1" source="pred_svc" style="edgeStyle=orthogonalEdgeStyle;dashed=1;" target="models_bg" value="reads .pkl / .json">
+          <mxGeometry relative="1" x="-0.1188" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn_train_m" edge="1" parent="1" source="train_bg" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=block;endFill=1;" target="models_bg" value="writes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="activity_predict" name="Activity: Prediction Flow">
+    <mxGraphModel dx="1000" dy="1800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Start -->
+        <mxCell id="start" value="" style="ellipse;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="358" y="30" width="30" height="30" as="geometry" />
+        </mxCell>
+        <!-- Step 1: User input -->
+        <mxCell id="a1" value="User enters Riot ID + Tag + Region" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="258" y="100" width="230" height="50" as="geometry" />
+        </mxCell>
+        <!-- Decision: valid input? -->
+        <mxCell id="d1" value="Valid input?" style="rhombus;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="298" y="190" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="err1" value="HTTP 422&#xa;Unprocessable Entity" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="520" y="195" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="end_err1" value="" style="ellipse;aspect=fixed;fillColor=#000000;strokeColor=#000000;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="585" y="270" width="30" height="30" as="geometry" />
+        </mxCell>
+        <!-- Step 2: Fetch account -->
+        <mxCell id="a2" value="GET account by Riot ID&#xa;(Riot Account v1)" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="258" y="290" width="230" height="50" as="geometry" />
+        </mxCell>
+        <!-- Decision: account found? -->
+        <mxCell id="d2" value="Account found?" style="rhombus;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="298" y="380" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="err2" value="HTTP 404 Player not found&#xa;HTTP 403 API key invalid" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="520" y="385" width="180" height="50" as="geometry" />
+        </mxCell>
+        <!-- Step 3: Fetch match IDs -->
+        <mxCell id="a3" value="GET ranked match IDs&#xa;(Match v5, queue=420, count=20)" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="258" y="480" width="230" height="50" as="geometry" />
+        </mxCell>
+        <!-- Decision: any matches? -->
+        <mxCell id="d3" value="Any matches?" style="rhombus;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="298" y="570" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="err3" value="HTTP 404&#xa;No ranked matches found" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="520" y="575" width="180" height="50" as="geometry" />
+        </mxCell>
+        <!-- Step 4: Loop match details -->
+        <mxCell id="a4" value="Loop: GET match details&#xa;Extract participant data&#xa;(skip non-ranked queues)" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="258" y="670" width="230" height="65" as="geometry" />
+        </mxCell>
+        <!-- Decision: enough matches? -->
+        <mxCell id="d4" value="≥ 3 matches?" style="rhombus;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="298" y="775" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="err4" value="HTTP 404&#xa;Not enough ranked matches" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="520" y="780" width="180" height="50" as="geometry" />
+        </mxCell>
+        <!-- Step 5: Feature engineering -->
+        <mxCell id="a5" value="aggregate_player_games()&#xa;mean / std / median of 10 features&#xa;winrate, unique_roles, champions" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="248" y="875" width="250" height="65" as="geometry" />
+        </mxCell>
+        <!-- Step 6: ML Inference -->
+        <mxCell id="a6" value="ML Inference&#xa;StandardScaler.transform()&#xa;model.predict() → rank&#xa;model.predict_proba() → confidence" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="248" y="980" width="250" height="75" as="geometry" />
+        </mxCell>
+        <!-- Step 7: Analytics -->
+        <mxCell id="a7" value="compute_comparison()&#xa;z-score + percentile per metric&#xa;compute_all_ranks_distance()" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="248" y="1095" width="250" height="65" as="geometry" />
+        </mxCell>
+        <!-- Step 8: Real rank (optional) -->
+        <mxCell id="a8" value="GET real rank (League v4)&#xa;[optional, non-blocking]" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="248" y="1200" width="250" height="50" as="geometry" />
+        </mxCell>
+        <!-- Step 9: Rank progression -->
+        <mxCell id="a9" value="compute_rank_progression()&#xa;LP to next tier + estimated games" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="248" y="1290" width="250" height="55" as="geometry" />
+        </mxCell>
+        <!-- Step 10: Champion recs -->
+        <mxCell id="a10" value="recommend_champions()&#xa;cosine_similarity(player_vec, champ_profiles)" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="248" y="1385" width="250" height="55" as="geometry" />
+        </mxCell>
+        <!-- Step 11: Response -->
+        <mxCell id="a11" value="Return JSON Response&#xa;(prediction, stats, comparison,&#xa;matches, recommendations, progression)" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="248" y="1480" width="250" height="65" as="geometry" />
+        </mxCell>
+        <!-- End -->
+        <mxCell id="end" value="" style="ellipse;aspect=fixed;fillColor=#000000;strokeColor=#000000;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="358" y="1580" width="30" height="30" as="geometry" />
+        </mxCell>
+        <!-- Flow edges -->
+        <mxCell id="f0" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="start" target="a1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="a1" target="d1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f1n" value="No" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d1" target="err1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f1e" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="err1" target="end_err1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f1y" value="Yes" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d1" target="a2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="a2" target="d2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2n" value="No" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d2" target="err2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2y" value="Yes" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d2" target="a3" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="a3" target="d3" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3n" value="No" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d3" target="err3" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3y" value="Yes" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d3" target="a4" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="a4" target="d4" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4n" value="No" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d4" target="err4" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4y" value="Yes" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d4" target="a5" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f5" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="a5" target="a6" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f6" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="a6" target="a7" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f7" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="a7" target="a8" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f8" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="a8" target="a9" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f9" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="a9" target="a10" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f10" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="a10" target="a11" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f11" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="a11" target="end" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="activity_live" name="Activity: Live Game Flow">
+    <mxGraphModel dx="900" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Start -->
+        <mxCell id="lg_start" value="" style="ellipse;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="358" y="30" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lg1" value="User requests live game analysis&#xa;(Riot ID + Region)" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="248" y="90" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lg2" value="GET account → PUUID&#xa;(Riot Account v1)" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="248" y="175" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lg3" value="GET active game by PUUID&#xa;(Spectator v5)" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="248" y="260" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lgd1" value="Player in game?" style="rhombus;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="288" y="345" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_no" value="Return { in_game: false }" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="530" y="355" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_end_no" value="" style="ellipse;aspect=fixed;fillColor=#000000;strokeColor=#000000;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="600" y="420" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lg4" value="GET champion ID map + game version&#xa;(Data Dragon CDN)" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="248" y="440" width="250" height="55" as="geometry" />
+        </mxCell>
+        <!-- Loop box -->
+        <mxCell id="lg_loop_bg" value="For each of 10 participants" style="swimlane;startSize=30;fillColor=#f5f5f5;strokeColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="218" y="530" width="310" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="lg5" value="GET account name by PUUID" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="238" y="575" width="210" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lg6" value="GET last 5 ranked matches" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="238" y="635" width="210" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lgd2" value="≥ 2 matches?" style="rhombus;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="263" y="690" width="160" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="lg7a" value="aggregate + predict()&#xa;→ rank + confidence" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="238" y="760" width="210" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="lg7b" value="predicted_rank = null" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="460" y="695" width="140" height="35" as="geometry" />
+        </mxCell>
+        <!-- Score & win probability -->
+        <mxCell id="lg8" value="_team_score()&#xa;Sum RANK_VALUES per team" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="248" y="860" width="250" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="lg9" value="Win probability&#xa;blue_pct = blue_score / total × 100" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="248" y="950" width="250" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="lg10" value="Return { in_game: true,&#xa;blue_team, red_team,&#xa;blue_win_pct, red_win_pct,&#xa;searched_team }" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="248" y="1040" width="250" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_end" value="" style="ellipse;aspect=fixed;fillColor=#000000;strokeColor=#000000;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="358" y="1135" width="30" height="30" as="geometry" />
+        </mxCell>
+        <!-- edges -->
+        <mxCell id="lge0" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lg_start" target="lg1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lge1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lg1" target="lg2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lge2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lg2" target="lg3" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lge3" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lg3" target="lgd1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lge3n" value="No" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lgd1" target="lg_no" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lge3ne" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lg_no" target="lg_end_no" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lge3y" value="Yes" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lgd1" target="lg4" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lge4" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lg4" target="lg_loop_bg" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lge5" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lg5" target="lg6" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lge6" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lg6" target="lgd2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lge6y" value="Yes" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lgd2" target="lg7a" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lge6n" value="No" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lgd2" target="lg7b" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lge_loop_out" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lg_loop_bg" target="lg8" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lge8" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lg8" target="lg9" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lge9" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lg9" target="lg10" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lge10" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lg10" target="lg_end" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="activity_train" name="Activity: ML Training Pipeline">
+    <mxGraphModel dx="1418" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tp_start" parent="1" style="ellipse;aspect=fixed;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="358" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tp1" parent="1" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Data Collection&#xa;lol_data_collection.ipynb&#xa;Riot API → per-game rows&#xa;→ lol_rank_dataset.csv&#xa;(~38,000 games, 2,065 players)" vertex="1">
+          <mxGeometry height="90" width="280" x="233" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="tp2" parent="1" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Cleaning — cleaner.py&#xa;• Drop rows: null puuid/tier&#xa;• Keep valid tier labels (7 tiers)&#xa;• Parse numeric columns&#xa;• Drop games &lt; 300 s" vertex="1">
+          <mxGeometry height="90" width="280" x="233" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="tp3" parent="1" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Feature Engineering — feature_engineering.py&#xa;compute_derived_features():&#xa;  vision_per_min = visionScore / (timePlayed/60)&#xa;  damage_taken_per_min = totalDamageTaken / (timePlayed/60)&#xa;aggregate_player_games() per PUUID:&#xa;  mean, std, median of 10 metrics&#xa;  winrate, unique_roles, unique_champions, avg_game_duration" vertex="1">
+          <mxGeometry height="120" width="360" x="193" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="tp4" parent="1" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Training — train_all_models.py&#xa;GroupKFold(n_splits=5) by PUUID&#xa;Train 10 models:&#xa;  Logistic Regression, Random Forest, XGBoost,&#xa;  LightGBM, Gradient Boosting, Extra Trees,&#xa;  KNN, SVM, MLP&#xa;Select best by CV accuracy" vertex="1">
+          <mxGeometry height="115" width="360" x="193" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="tp5" parent="1" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Save Artifacts&#xa;model.pkl  •  scaler.pkl&#xa;rank_stats.pkl  •  model_meta.json&#xa;models_comparison.json" vertex="1">
+          <mxGeometry height="80" width="280" x="233" y="665" as="geometry" />
+        </mxCell>
+        <mxCell id="tp6" parent="1" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Evaluation — evaluate.py&#xa;GroupKFold CV accuracy per fold&#xa;Classification report (precision/recall/F1)&#xa;Confusion matrix" vertex="1">
+          <mxGeometry height="80" width="280" x="233" y="785" as="geometry" />
+        </mxCell>
+        <mxCell id="tp_end" parent="1" style="ellipse;aspect=fixed;fillColor=#000000;strokeColor=#000000;strokeWidth=3;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="358" y="905" as="geometry" />
+        </mxCell>
+        <mxCell id="tpe0" edge="1" parent="1" source="tp_start" style="edgeStyle=orthogonalEdgeStyle;" target="tp1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tpe1" edge="1" parent="1" source="tp1" style="edgeStyle=orthogonalEdgeStyle;" target="tp2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tpe2" edge="1" parent="1" source="tp2" style="edgeStyle=orthogonalEdgeStyle;" target="tp3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tpe3" edge="1" parent="1" source="tp3" style="edgeStyle=orthogonalEdgeStyle;" target="tp4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tpe4" edge="1" parent="1" source="tp4" style="edgeStyle=orthogonalEdgeStyle;" target="tp5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tpe5" edge="1" parent="1" source="tp5" style="edgeStyle=orthogonalEdgeStyle;" target="tp6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tpe6" edge="1" parent="1" source="tp6" style="edgeStyle=orthogonalEdgeStyle;" target="tp_end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="network" name="Network Topology">
+    <mxGraphModel dx="1418" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="net_browser" parent="1" style="shape=mxgraph.cisco.computers_and_peripherals.pc;fillColor=#dae8fc;strokeColor=#6c8ebf;whiteSpace=wrap;html=1;" value="Browser&#xa;(User)" vertex="1">
+          <mxGeometry height="80" width="90" x="80" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="net_server" parent="1" style="shape=mxgraph.network.server;fillColor=#d5e8d4;strokeColor=#82b366;whiteSpace=wrap;html=1;" value="LoL Rank Predictor Server&#xa;Python / FastAPI&#xa;uvicorn :8000 (dev) / :443 (prod)" vertex="1">
+          <mxGeometry height="100" width="160" x="450" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="net_riot" parent="1" style="shape=mxgraph.network.server;fillColor=#fff2cc;strokeColor=#d6b656;whiteSpace=wrap;html=1;" value="api.riotgames.com&#xa;(Riot Games API)" vertex="1">
+          <mxGeometry height="90" width="160" x="790" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="net_dd" parent="1" style="shape=mxgraph.network.server;fillColor=#fff2cc;strokeColor=#d6b656;whiteSpace=wrap;html=1;" value="ddragon.leagueoflegends.com&#xa;(Data Dragon CDN)" vertex="1">
+          <mxGeometry height="90" width="160" x="790" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="net_cloud" parent="1" style="ellipse;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="Render.com&#xa;(Cloud Hosting)" vertex="1">
+          <mxGeometry height="70" width="200" x="430" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="net_e1" edge="1" parent="1" source="net_browser" style="dashed=1;endArrow=block;endFill=1;" target="net_server" value="HTTP :8000&#xa;(local dev)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="260" y="340" />
+              <mxPoint x="450" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="net_e2" edge="1" parent="1" source="net_browser" style="endArrow=block;endFill=1;" target="net_server" value="HTTPS :443&#xa;(production)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="260" y="380" />
+              <mxPoint x="450" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="net_e3" edge="1" parent="1" source="net_server" style="endArrow=block;endFill=1;" target="net_riot" value="HTTPS :443&#xa;X-Riot-Token header">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="net_e4" edge="1" parent="1" source="net_server" style="endArrow=block;endFill=1;" target="net_dd" value="HTTPS :443">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="net_e5" edge="1" parent="1" source="net_server" style="dashed=1;endArrow=open;endFill=0;" target="net_cloud" value="deployed on">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="net_legend" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;" value="Legend:&#xa;──── HTTPS (encrypted)&#xa;- - - HTTP (local dev only)" vertex="1">
+          <mxGeometry height="70" width="220" x="60" y="530" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="s5VvX7cptpYvpe7zDAuo" name="Stránka-7">
+    <mxGraphModel dx="1418" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dc_start" parent="1" style="ellipse;aspect=fixed;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="358" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dc1" parent="1" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Configuration &amp; Validation&#xa;(API Key, Region, Tiers)" vertex="1">
+          <mxGeometry height="50" width="230" x="258" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="dc2" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Initialize SQLite DB&#xa;&amp; Checkpoint Manager" vertex="1">
+          <mxGeometry height="80" width="120" x="313" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="dc3" parent="1" style="shape=process;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Iterate through Tiers&#xa;(IRON → DIAMOND)" vertex="1">
+          <mxGeometry height="50" width="200" x="273" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="dc4" parent="1" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Collect Players from Divisions I-IV&#xa;(league-v4 API)" vertex="1">
+          <mxGeometry height="50" width="200" x="273" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="dc5" parent="1" style="shape=process;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="For each Player:&#xa;Download 20 Match History" vertex="1">
+          <mxGeometry height="50" width="200" x="273" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="dc6" parent="1" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Match Processing:&#xa;1. DB Deduplication&#xa;2. Feature Engineering&#xa;(KDA, Gold/min, CS/min)" vertex="1">
+          <mxGeometry height="75" width="220" x="263" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="dc7" parent="1" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Save to DB&#xa;&amp; Update Checkpoint" vertex="1">
+          <mxGeometry height="50" width="180" x="283" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="dc8" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Final Export to CSV&#xa;(lol_rank_dataset.csv)" vertex="1">
+          <mxGeometry height="70" width="120" x="313" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="dc_end" parent="1" style="ellipse;aspect=fixed;fillColor=#000000;strokeColor=#000000;strokeWidth=3;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="358" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="cf1" edge="1" parent="1" source="dc_start" target="dc1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cf2" edge="1" parent="1" source="dc1" target="dc2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cf3" edge="1" parent="1" source="dc2" target="dc3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cf4" edge="1" parent="1" source="dc3" target="dc4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cf5" edge="1" parent="1" source="dc4" target="dc5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cf6" edge="1" parent="1" source="dc5" target="dc6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cf7" edge="1" parent="1" source="dc6" target="dc7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cf8" edge="1" parent="1" source="dc7" target="dc8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cf9" edge="1" parent="1" source="dc8" target="dc_end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
