@@ -112,6 +112,7 @@ function renderResults(data) {
     renderMatchHistory(data.matches);
     renderTrendChart(data.matches);
     renderChampionRecommender(data.champion_recommendations);
+    renderRankProgression(data.rank_progression);
 }
 
 function renderSummoner(summoner) {
@@ -752,4 +753,85 @@ function escapeHtml(str) {
 
 function escapeAttr(str) {
     return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function renderRankProgression(progression) {
+    var container = document.getElementById('rankProgressionContent');
+    if (!progression) {
+        container.innerHTML = '<p style="color:var(--text-muted)">Could not fetch ranked data (player may be unranked)</p>';
+        return;
+    }
+
+    var currentColor = RANK_COLORS[progression.current_tier] || '#8e9297';
+    var html = '';
+
+    // Current rank badge
+    html += '<div class="prog-current">';
+    html += '<div class="prog-current-badge" style="border-color:' + currentColor + ';box-shadow:0 0 20px ' + currentColor + '33">';
+    html += '<div class="prog-current-icon" style="background:linear-gradient(135deg,' + currentColor + '66,' + currentColor + ')">' + progression.current_tier.charAt(0) + '</div>';
+    html += '<div class="prog-current-info">';
+    html += '<div class="prog-current-tier" style="color:' + currentColor + '">' + progression.current_tier + ' ' + progression.current_division + '</div>';
+    html += '<div class="prog-current-lp">' + progression.current_lp + ' LP &middot; ' + progression.winrate_percent + '% WR</div>';
+    html += '</div></div></div>';
+
+    // Tier strength bars (all tiers)
+    html += '<div class="prog-strengths">';
+    html += '<div class="prog-strengths-title">PERFORMANCE STRENGTH BY TIER</div>';
+    RANK_ORDER.forEach(function(tier) {
+        var strength = (progression.tier_strengths && progression.tier_strengths[tier]) || 0;
+        var color = RANK_COLORS[tier] || '#8e9297';
+        var isCurrent = tier === progression.current_tier;
+        var strengthLabel = strength >= 70 ? 'Strong' : (strength >= 45 ? 'Average' : 'Weak');
+        var strengthClass = strength >= 70 ? 'prog-strong' : (strength >= 45 ? 'prog-average' : 'prog-weak');
+
+        html += '<div class="prog-strength-row' + (isCurrent ? ' prog-current-row' : '') + '">';
+        html += '<div class="prog-tier-label" style="color:' + color + '">';
+        if (isCurrent) html += '<span class="prog-you-badge">YOU</span>';
+        html += tier + '</div>';
+        html += '<div class="prog-bar-track">';
+        html += '<div class="prog-bar-fill" style="width:' + Math.min(strength, 100) + '%;background:' + color + '"></div>';
+        html += '</div>';
+        html += '<div class="prog-strength-val ' + strengthClass + '">' + strength + '%</div>';
+        html += '<div class="prog-strength-label ' + strengthClass + '">' + strengthLabel + '</div>';
+        html += '</div>';
+    });
+    html += '</div>';
+
+    // Progression forecast (tiers above current)
+    var prog = progression.progression || [];
+    if (prog.length > 0) {
+        html += '<div class="prog-forecast">';
+        html += '<div class="prog-forecast-title">CLIMB FORECAST</div>';
+        html += '<div class="prog-forecast-desc">Based on your current ' + progression.winrate_percent + '% winrate with avg +' + 22 + '/-' + 18 + ' LP per game</div>';
+        html += '<div class="prog-timeline">';
+
+        prog.forEach(function(p, i) {
+            var color = RANK_COLORS[p.tier] || '#8e9297';
+            var games = p.estimated_games;
+            var gamesText = games !== null ? '~' + games + ' games' : 'Very slow (<45% WR)';
+            var gamesClass = games !== null ? '' : 'prog-na';
+            var reachable = p.strength >= 40;
+
+            html += '<div class="prog-timeline-item">';
+            html += '<div class="prog-timeline-dot" style="background:' + color + ';box-shadow:0 0 10px ' + color + '55"></div>';
+            html += '<div class="prog-timeline-line"></div>';
+            html += '<div class="prog-timeline-content">';
+            html += '<div class="prog-timeline-tier" style="color:' + color + '">' + p.tier + '</div>';
+            html += '<div class="prog-timeline-details">';
+            html += '<span class="prog-lp-needed">' + p.lp_needed + ' LP needed</span>';
+            html += '<span class="prog-games ' + gamesClass + '">' + gamesText + '</span>';
+            html += '</div>';
+            html += '<div class="prog-timeline-chance">';
+            html += '<div class="prog-chance-bar-track">';
+            html += '<div class="prog-chance-bar-fill" style="width:' + Math.min(p.strength, 100) + '%;background:' + color + '"></div>';
+            html += '</div>';
+            html += '<span class="prog-chance-val" style="color:' + color + '">' + p.strength + '% strength</span>';
+            html += '</div>';
+            html += '</div></div>';
+        });
+
+        html += '</div></div>';
+    }
+
+    container.innerHTML = html;
 }

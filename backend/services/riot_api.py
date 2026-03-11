@@ -173,6 +173,38 @@ class RiotAPIService:
         )
         return self._request(url)
 
+    def get_summoner_by_puuid(self, puuid):
+        url = (
+            f"https://{self.platform}.api.riotgames.com"
+            f"/lol/summoner/v4/summoners/by-puuid/{puuid}"
+        )
+        return self._request(url)
+
+    def get_ranked_entries(self, summoner_id):
+        url = (
+            f"https://{self.platform}.api.riotgames.com"
+            f"/lol/league/v4/entries/by-summoner/{summoner_id}"
+        )
+        return self._request(url)
+
+    def get_player_real_rank(self, puuid):
+        """Fetch the player's actual solo/duo rank from Riot API."""
+        url = (
+            f"https://{self.platform}.api.riotgames.com"
+            f"/lol/league/v4/entries/by-puuid/{puuid}"
+        )
+        entries = self._request(url)
+        for entry in entries:
+            if entry.get('queueType') == 'RANKED_SOLO_5x5':
+                return {
+                    'tier': entry.get('tier', '').upper(),
+                    'rank': entry.get('rank', ''),
+                    'lp': entry.get('leaguePoints', 0),
+                    'wins': entry.get('wins', 0),
+                    'losses': entry.get('losses', 0),
+                }
+        return None
+
     def get_ddragon_version(self):
         global _ddragon_version_cache
         if _ddragon_version_cache is None:

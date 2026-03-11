@@ -6,6 +6,7 @@ from backend.services.predictor import predict
 from backend.services.analytics import compute_comparison, compute_all_ranks_distance
 from backend.services.live_game import analyze_live_game
 from backend.services.champion_recommender import recommend_champions
+from backend.services.rank_progression import compute_rank_progression
 from Training.preprocessing.feature_engineering import aggregate_player_games
 
 router = APIRouter()
@@ -50,6 +51,17 @@ def predict_rank(request: PredictRequest):
 
     wins = sum(1 for m in matches if m['win'] == 1)
     losses = len(matches) - wins
+    winrate = wins / len(matches) if matches else 0
+
+    # Fetch real rank and compute progression
+    real_rank = None
+    rank_progression = None
+    try:
+        real_rank = riot_service.get_player_real_rank(player_data['puuid'])
+        if real_rank:
+            rank_progression = compute_rank_progression(real_rank, player_agg, winrate)
+    except Exception as e:
+        print(f'[RankProgression] Error fetching rank: {e}')
 
     champion_data = recommend_champions(matches, top_n=3)
 
@@ -69,6 +81,8 @@ def predict_rank(request: PredictRequest):
         'matches': match_summaries,
         'record': {'wins': wins, 'losses': losses, 'total': len(matches)},
         'champion_recommendations': champion_data,
+        'real_rank': real_rank,
+        'rank_progression': rank_progression,
     }
 
 
