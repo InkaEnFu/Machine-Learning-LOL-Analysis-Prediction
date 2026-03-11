@@ -774,6 +774,12 @@ function renderRankProgression(progression) {
     html += '<div class="prog-current-lp">' + progression.current_lp + ' LP &middot; ' + progression.winrate_percent + '% WR</div>';
     html += '</div></div></div>';
 
+    // Build lookup for progression data by tier
+    var progByTier = {};
+    (progression.progression || []).forEach(function(p) {
+        progByTier[p.tier] = p;
+    });
+
     // Tier strength bars (all tiers)
     html += '<div class="prog-strengths">';
     html += '<div class="prog-strengths-title">PERFORMANCE STRENGTH BY TIER</div>';
@@ -783,6 +789,7 @@ function renderRankProgression(progression) {
         var isCurrent = tier === progression.current_tier;
         var strengthLabel = strength >= 70 ? 'Strong' : (strength >= 45 ? 'Average' : 'Weak');
         var strengthClass = strength >= 70 ? 'prog-strong' : (strength >= 45 ? 'prog-average' : 'prog-weak');
+        var progData = progByTier[tier];
 
         html += '<div class="prog-strength-row' + (isCurrent ? ' prog-current-row' : '') + '">';
         html += '<div class="prog-tier-label" style="color:' + color + '">';
@@ -793,6 +800,13 @@ function renderRankProgression(progression) {
         html += '</div>';
         html += '<div class="prog-strength-val ' + strengthClass + '">' + strength + '%</div>';
         html += '<div class="prog-strength-label ' + strengthClass + '">' + strengthLabel + '</div>';
+        if (progData) {
+            var gamesStr = progData.estimated_games !== null ? '~' + progData.estimated_games + ' games' : 'Very slow';
+            var gamesColor = progData.estimated_games !== null ? 'var(--accent-light)' : 'var(--danger)';
+            html += '<div class="prog-games-hint" style="color:' + gamesColor + '">' + gamesStr + '</div>';
+        } else {
+            html += '<div class="prog-games-hint"></div>';
+        }
         html += '</div>';
     });
     html += '</div>';
