@@ -3,7 +3,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-RIOT_API_KEY = os.getenv('RIOT_API_KEY', 'RGAPI-d40ad4fb-fe6d-4552-8129-b92fe9c30f70')
+
+RIOT_API_KEY = os.getenv("RIOT_API_KEY")
+
+if not RIOT_API_KEY:
+    raise ValueError("Chybí proměnná prostředí RIOT_API_KEY")
 
 REGION_TO_PLATFORM = {
     'euw': 'euw1',
